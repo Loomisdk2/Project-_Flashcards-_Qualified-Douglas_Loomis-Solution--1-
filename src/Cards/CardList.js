@@ -39,14 +39,14 @@ export default function CardList({ cards }) {
                     type="button"
                     onClick={() => history.push(`${url}/cards/${card.id}/edit`)}
                   >
-                    <i className="fa-solid fa-pencil"></i> Edit
+                    <i className="fas fa-pencil"></i> Edit
                   </button>
                   <button
                     className="btn btn-danger"
                     type="button"
                     onClick={() => handleDelete(card.id)}
                   >
-                    <i className="fa-solid fa-trash-can"></i>
+                    <i className="fas fa-trash-can"></i>
                   </button>
                 </div>
               </div>

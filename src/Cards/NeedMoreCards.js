@@ -11,7 +11,7 @@ export default function NeedMoreCards({ id, cards }) {
       </p>
       <div>
         <Link className="btn btn-primary" to={`/decks/${id}/cards/new`}>
-          <i className="fa-solid fa-plus"></i> Add Cards
+          <i className="fas fa-plus"></i> Add Cards
         </Link>
       </div>
     </div>
