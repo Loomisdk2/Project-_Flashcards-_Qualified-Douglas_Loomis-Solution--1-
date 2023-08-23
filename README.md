@@ -1,8 +1,8 @@
 # Thinkful-Flashcard-App
 
-Live app: https://liz-flashcards-app.herokuapp.com/
+Live app: ...
 
-Flash card application (Flashcard-o-matic) created to help students study online. Teachers will use this application to create decks of flash cards and students will study those decks.
+This flash card application (Flashcard-o-matic) was created to help students study online. Teachers can use this application to create decks of flash cards and students will use it to study those decks.
 
 ## Features
 
