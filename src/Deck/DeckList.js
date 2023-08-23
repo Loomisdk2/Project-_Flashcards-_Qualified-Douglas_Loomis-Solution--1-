@@ -3,24 +3,23 @@ import { Link } from "react-router-dom";
 import { deleteDeck } from "../utils/api/index.js";
 
 export default function Decklist({ decks }) {
-
-
-    async function handleDelete(id) {
-        const abortCon = new AbortController();
-        try {
-            const result = window.confirm(
-                "Delete this deck?\n\n\nYou will not be able to recover it."
-            );
-            if (result) {
-                await deleteDeck(id, abortCon.signal);
-                window.location.reload();
-            }
-        } catch (err) {throw err}
-        return () => abortCon.abort();
+  async function handleDelete(id) {
+    const abortCon = new AbortController();
+    try {
+      const result = window.confirm(
+        "Delete this deck?\n\n\nYou will not be able to recover it."
+      );
+      if (result) {
+        await deleteDeck(id, abortCon.signal);
+        window.location.reload();
+      }
+    } catch (err) {
+      throw err;
     }
+    return () => abortCon.abort();
+  }
 
-
-return (
+  return (
     <>
       {decks.map((deck) => (
         <div className="card " key={deck.id}>

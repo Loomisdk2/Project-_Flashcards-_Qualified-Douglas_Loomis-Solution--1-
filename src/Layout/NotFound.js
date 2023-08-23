@@ -1,10 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function NotFound() {
   return (
-    <div className="NotFound">
-      <h1>Not Found</h1>
-    </div>
+    <>
+      <h2>Not Found</h2>
+      <p>There's nothing here. Maybe it's time to take a break.</p>
+      <Link to={"/"} className="btn btn-warning">
+        Return Home
+      </Link>
+    </>
   );
 }
 
