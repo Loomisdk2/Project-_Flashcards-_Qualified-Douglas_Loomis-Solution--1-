@@ -79,7 +79,7 @@ export default function CardForm({ mode = "create" }) {
             placeholder="Back side of card"
           />
         </div>
-        <div classNAme="row">
+        <div className="row">
           <Link to={`/deck/${deckId}`} className="btn btn-secondary mr-2">
             {mode === "edit" ? "Cancel" : "Done"}
           </Link>
