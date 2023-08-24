@@ -14,12 +14,10 @@ export default function Deck() {
     const abortCon = new AbortController();
     async function getDeck() {
       try {
-        if (deckId) {
-          const gotDeck = await readDeck(deckId, abortCon.signal);
-          setDeck({ ...getDeck });
-        }
-      } catch (err) {
-        throw err;
+        const gotDeck = await readDeck(deckId, abortCon.signal);
+        setDeck(gotDeck);
+      } catch (error) {
+        console.log("error creating deck list");
       }
     }
     getDeck();
