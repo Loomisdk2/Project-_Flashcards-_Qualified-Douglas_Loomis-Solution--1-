@@ -30,7 +30,7 @@ export default function AddCard() {
         <NavBar
           linkName={currentDeck.name}
           link={`decks/${currentDeck.id}`}
-          pageNAme={"Add Card"}
+          pageName={"Add Card"}
         />
       </div>
       <div className="d-flex flex-column">
