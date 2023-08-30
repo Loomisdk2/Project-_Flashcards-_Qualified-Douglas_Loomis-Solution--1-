@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams, useRouteMatch } from "react-router-dom";
-import { readDeck, deleteDeck } from "../utils/api";
+import { listDecks, readDeck, deleteDeck } from "../utils/api";
 import NavBar from "../Layout/NavBar";
 import CardList from "../Cards/CardList";
 

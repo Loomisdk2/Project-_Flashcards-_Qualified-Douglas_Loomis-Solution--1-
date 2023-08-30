@@ -35,12 +35,6 @@ export default function Study() {
     return () => abortCon.abort();
   }, [deckId]);
 
-  const reset = () => {
-    setCard(cards[0]);
-    setNextIndex(1);
-    handleFlip();
-  };
-
   const handleFlip = () => {
     setFlipped(!flipped);
   };
@@ -56,6 +50,12 @@ export default function Study() {
       );
       response ? reset() : history.push("/");
     }
+  };
+
+  const reset = () => {
+    setCard(cards[0]);
+    setNextIndex(1);
+    handleFlip();
   };
 
   return (
