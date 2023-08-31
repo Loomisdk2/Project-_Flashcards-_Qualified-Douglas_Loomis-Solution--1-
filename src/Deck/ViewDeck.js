@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams, useRouteMatch } from "react-router-dom";
-import { listDecks, readDeck, deleteDeck } from "../utils/api";
+import { readDeck, deleteDeck } from "../utils/api";
 import NavBar from "../Layout/NavBar";
 import CardList from "../Cards/CardList";
 
@@ -15,9 +15,9 @@ export default function Deck() {
     async function getDeck() {
       try {
         const gotDeck = await readDeck(deckId, abortCon.signal);
-        setDeck(gotDeck);
-      } catch (error) {
-        console.log("error creating deck list");
+        setDeck({ ...gotDeck });
+      } catch (err) {
+        throw err;
       }
     }
     getDeck();

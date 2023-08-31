@@ -3,7 +3,7 @@ import React from "react";
 export default function Card({ card, count, index, flipped, flip, next }) {
   const nextButton = (
     <button type="button" className="btn btn-primary" onClick={next}>
-      next
+      Next
     </button>
   );
 
