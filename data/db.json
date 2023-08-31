@@ -11,8 +11,8 @@
       "id": 2
     },
     {
-      "name": "A",
-      "description": "A",
+      "name": "Test Deck",
+      "description": "A deck to test.",
       "id": 3
     }
   ],
@@ -77,12 +77,6 @@
       "back": "D",
       "deckId": 3,
       "id": 11
-    },
-    {
-      "front": "B",
-      "back": "B",
-      "deckId": 3,
-      "id": 12
     }
   ]
 }
