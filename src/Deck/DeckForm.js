@@ -3,38 +3,51 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { createDeck, readDeck, updateDeck } from "../utils/api";
 
 export default function DeckForm({ mode }) {
+  // Access to browsers history API
   const history = useHistory();
+  // Extract deckId parameter from the URL
   const { deckId } = useParams();
-
+  // Inital form data structure
   const initialFormData = {
     name: "",
     description: "",
   };
+
+  // State for holding form data
   const [formData, setFormData] = useState({ ...initialFormData });
 
+  // Handler for form changes
   const handleChange = ({ target }) =>
     setFormData({ ...formData, [target.name]: target.value });
 
+  // Effect hook to load deck data when in edit mode
   useEffect(() => {
     const abortCon = new AbortController();
 
+    // Function to fetch and set the from data when in edit mode
     async function getEditDeck() {
       try {
         const deckToEdit = await readDeck(deckId, abortCon.signal);
         setFormData({ ...deckToEdit });
+        // Throw any errors
       } catch (err) {
         throw err;
       }
     }
+    // Checks if in edit mode and fetch data accordingly
     if (mode === "edit") {
       getEditDeck();
     }
+    // Cleanup function
     return () => abortCon.abort();
   }, [deckId, mode]);
 
+  // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
     const abortCon = new AbortController();
+
+    // Create new deck
     async function createNewDeck() {
       try {
         const newDeck = await createDeck(formData, abortCon.signal);
@@ -44,6 +57,8 @@ export default function DeckForm({ mode }) {
         throw err;
       }
     }
+
+    // Function to edit existing deck
     async function editDeck() {
       try {
         await updateDeck(formData, abortCon.signal);
@@ -52,7 +67,11 @@ export default function DeckForm({ mode }) {
         throw err;
       }
     }
+
+    // Call appropriate function based on mode
     mode === "create" ? createNewDeck() : editDeck();
+
+    // Cleanup function
     return () => abortCon.abort();
   };
 
