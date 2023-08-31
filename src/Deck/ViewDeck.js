@@ -5,35 +5,47 @@ import NavBar from "../Layout/NavBar";
 import CardList from "../Cards/CardList";
 
 export default function Deck() {
-  const { deckId } = useParams();
-  const history = useHistory();
-  const { url } = useRouteMatch();
-  const [deck, setDeck] = useState({});
+  const { deckId } = useParams(); // Get deckId parameters from the URL
+  const history = useHistory(); // Access browser's history API
+  const { url } = useRouteMatch(); // Get URL or current route
+  const [deck, setDeck] = useState({}); // State for holding deck data
 
+  // Effect hook to fetch and set deck data
   useEffect(() => {
+    // Abort controller for cleanup
     const abortCon = new AbortController();
+    // Fetch and set deck data
     async function getDeck() {
       try {
-        const gotDeck = await readDeck(deckId, abortCon.signal);
-        setDeck({ ...gotDeck });
+        if (deckId) {
+          const gotDeck = await readDeck(deckId, abortCon.signal);
+          setDeck({ ...gotDeck });
+        }
+        // Catch and throw any errors
       } catch (err) {
         throw err;
       }
     }
+    // Calls fucntion to get deck data
     getDeck();
+    // Cleanup function
     return () => abortCon.abort();
   }, [deckId]);
 
+  // Function to handle deck delete
   async function handleDelete(id) {
     try {
+      // Window to confirm deletion
       const result = window.confirm(
         "Delete this deck?\n\n\nYou will not be able to recover it."
       );
+      // If delete selected, then...
       if (result) {
-        const abortCon = new AbortController();
-        await deleteDeck(id, abortCon.signal);
-        history.push("/");
+        const abortCon = new AbortController(); // abort controller for cleanup
+        await deleteDeck(id, abortCon.signal); // call API to delete the deck
+        history.push("/"); // navigate to homepage
       }
+      // catch and throw any errorss
     } catch (err) {
       throw err;
     }
