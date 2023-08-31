@@ -14,7 +14,7 @@ export default function Card({ card, count, index, flipped, flip, next }) {
           <h4 className="card-title">
             Card {index} of {count}
           </h4>
-          <p className="card-text">{!flipped ? card.front : card.back}</p>
+          <p className="card-info">{!flipped ? card.front : card.back}</p>
           <button
             type="button"
             className="btn btn-secondary mr-2"
