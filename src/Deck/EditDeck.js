@@ -35,7 +35,7 @@ export default function EditDeck() {
   }, [deckId]);
 
   return (
-    <div>
+    <>
       <div className="d-flex">
         <NavBar
           linkName={deck.name}
@@ -47,6 +47,6 @@ export default function EditDeck() {
         <h2>Edit Deck</h2>
         <DeckForm mode="edit" />
       </div>
-    </div>
+    </>
   );
 }
