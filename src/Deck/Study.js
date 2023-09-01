@@ -19,7 +19,7 @@ export default function Study() {
 
   // An effect hook to load deck data and cards when deckId changes
   useEffect(() => {
-    // Abort contoller for cleanup
+    // Abort controller for cleanup
     const abortCon = new AbortController();
     // Fetch and set deck card data
     async function getDeck() {
