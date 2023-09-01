@@ -29,13 +29,16 @@ export default function Study() {
           setDeck({ ...gotDeck });
           setCount(gotDeck.cards.length);
           setCards([...gotDeck.cards]);
-          setCard({ ...gotDeck.cards[0] });
+          if (gotDeck.cards.length > 0) {
+            setCard(gotDeck.cards[0]);
+          }
         }
         // Error catching and throwing
       } catch (err) {
         throw err;
       }
     }
+
     // Call function to fetch data
     getDeck();
     return () => abortCon.abort();
@@ -49,7 +52,7 @@ export default function Study() {
   // Function to handle going to the next card
   const handleNext = () => {
     if (nextIndex < cards.length) {
-      setCard(card[nextIndex]);
+      setCard(cards[nextIndex]);
       setNextIndex((currentIndex) => currentIndex + 1);
       handleFlip();
     } else {

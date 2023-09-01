@@ -21,7 +21,7 @@ React
 
 REST API JSON Server
 
-## Screenshots
+<!-- ## Screenshots
 
 _Home Page_
 ![home](./screenshots/Home.png)
@@ -52,4 +52,4 @@ _/decks/1/cards/new_
 <br>
 
 _/decks/1/cards/1/edit_
-![editcard](./screenshots/EditCard.png)
+![editcard](./screenshots/EditCard.png) -->
